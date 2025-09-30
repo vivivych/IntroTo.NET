@@ -1,5 +1,6 @@
 ﻿//#define STRING_OPERATIONS
-#define DATA_TYPES
+//#define FACTORIAL
+//#define DATA_TYPES
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,13 +56,97 @@ namespace IntroDOTNET
             //decimal Decimal;
 #if DATA_TYPES
 
-            Console.WriteLine(sizeof(bool));
-            //Console.WriteLine(Boolean.);
+            bool b = true;
+            Console.WriteLine($"{b.GetType()} занимает {sizeof(bool)} Байт памяти и принимает значения в диапозоне: {bool.TrueString} ... {bool.FalseString}");
+            Console.WriteLine();
+
+            char ch = ' ';
+            Console.WriteLine($"{ch.GetType()} занимает {sizeof(char)} Байт памяти");
+            Console.WriteLine();
+
             byte var = 0;
             Console.WriteLine($"{var.GetType()} занимет {sizeof(byte)} Байт памяти, и принимает значения в диапазоне : {byte.MinValue} ... {byte.MaxValue}");
+            Console.WriteLine();
 
+            sbyte var1 = 0;
+            Console.WriteLine($"{var1.GetType()} занимет {sizeof(sbyte)} Байт памяти, и принимает значения в диапазоне : {sbyte.MinValue} ... {sbyte.MaxValue}");
+            Console.WriteLine();
+
+            int var2 = 0;
+            Console.WriteLine($"{var2.GetType()} занимет {sizeof(int)} Байт памяти, и принимает значения в диапазоне : {int.MinValue} ... {int.MaxValue}");
+            Console.WriteLine();
+
+            uint var3 = 0;
+            Console.WriteLine($"{var3.GetType()} занимет {sizeof(uint)} Байт памяти, и принимает значения в диапазоне : {uint.MinValue} ... {uint.MaxValue}");
+            Console.WriteLine();
+
+            short var4 = 0;
+            Console.WriteLine($"{var4.GetType()} занимет {sizeof(short)} Байт памяти, и принимает значения в диапазоне : {short.MinValue} ... {short.MaxValue}");
+            Console.WriteLine();
+
+            ushort var5 = 0;
+            Console.WriteLine($"{var5.GetType()} занимет {sizeof(ushort)} Байт памяти, и принимает значения в диапазоне : {ushort.MinValue} ... {ushort.MaxValue}");
+            Console.WriteLine();
+
+            long var6 = 0;
+            Console.WriteLine($"{var6.GetType()} занимет {sizeof(long)} Байт памяти, и принимает значения в диапазоне : {long.MinValue} ... {long.MaxValue}");
+            Console.WriteLine();
+
+            ulong var7 = 0;
+            Console.WriteLine($"{var7.GetType()} занимет {sizeof(ulong)} Байт памяти, и принимает значения в диапазоне : {ulong.MinValue} ... {ulong.MaxValue}");
+            Console.WriteLine();
+
+            float var8 = 1;
+            Console.WriteLine($"{var8.GetType()} занимет {sizeof(float)} Байт памяти, и принимает значения в диапазоне : {float.MinValue} ... {float.MaxValue}");
+            Console.WriteLine();
+
+            double var9 = 1;
+            Console.WriteLine($"{var9.GetType()} занимет {sizeof(double)} Байт памяти, и принимает значения в диапазоне : {double.MinValue} ... {double.MaxValue}");
+            Console.WriteLine();
 
 #endif
+
+#if FACTORIAL
+            long fct = 1;
+            string factorialExpression = "1";
+            const int min = 1;
+            const int max = 10;
+            int n;
+
+            while (true)
+            {
+                Console.Write($"\nВычисление факториала\nВведите число от {min} до {max}: ");
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out n))
+                {
+                    if (n >= min && n <= max)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Ошибка : число должно быть от {min} до {max}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка : введите целое число");
+                }
+            }
+
+                for (int i = 2; i <= n; i++)
+            {
+             
+                fct = fct * i;
+                factorialExpression += $" * {i}";
+            }
+            Console.WriteLine($"{factorialExpression} = {fct}");
+            Console.WriteLine($"Факториал числа {n} равен {fct}");
+#endif
+
+
         }
     }
+
 }
