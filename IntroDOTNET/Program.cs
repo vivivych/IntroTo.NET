@@ -1,6 +1,7 @@
 ﻿//#define STRING_OPERATIONS
 //#define FACTORIAL
 //#define DATA_TYPES
+//#define CALC
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -144,6 +145,28 @@ namespace IntroDOTNET
             Console.WriteLine($"{factorialExpression} = {fct}");
             Console.WriteLine($"Факториал числа {n} равен {fct}");
 #endif
+
+#if CALC
+            
+            Console.Write("Введите выражение типа 2 + 3 для определения значения : ");
+            string expression = Console.ReadLine();
+
+            char[] delimiters = { '+', '-', '*', '/' };
+            string[] operand = expression.Split(delimiters);
+
+            double a = Convert.ToDouble(operand[0]);
+            double b = Convert.ToDouble(operand[1]);
+
+            if (expression.Contains('+')) Console.WriteLine($"{a}+{b}={a + b}");
+            else if (expression.Contains('-')) Console.WriteLine($"{a}-{b}={a - b}");
+            else if (expression.Contains('*')) Console.WriteLine($"{a}*{b}={a * b}");
+            else if (expression.Contains('/') && (b != 0)) Console.WriteLine($"{a}/{b}={a / b}");
+            else if (expression.Contains('/') && (b == 0)) Console.WriteLine("Ошибка : деление на ноль");
+
+#endif
+
+
+
 
 
         }
